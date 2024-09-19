@@ -1,0 +1,141 @@
+
+;; Function FB (FB, funcdef_no=0, decl_uid=2348, cgraph_uid=1, symbol_order=0)
+
+
+Analyzing function body size: FB/0
+
+IPA function summary for FB/0
+  global time:     26.000000
+  self size:       18
+  global size:     0
+  min size:       0
+  self stack:      0
+  global stack:    0
+    size:13.000000, time:14.000000
+    size:2.000000, time:0.000000,  executed if:(not inlined)
+  calls:
+    printf/2 function body not available
+      freq:1.00 loop depth: 0 size: 3 time: 12
+
+void FB (int * t, int * b, int * a, int * i)
+{
+  int _1;
+  int _2;
+  int _3;
+  int _4;
+  int _5;
+  int _6;
+  int _7;
+  int _8;
+
+  <bb 2> :
+  _1 = *b_10(D);
+  *t_11(D) = _1;
+  _2 = *a_13(D);
+  _3 = *b_10(D);
+  _4 = _2 + _3;
+  *b_10(D) = _4;
+  _5 = *b_10(D);
+  printf ("%d\n", _5);
+  _6 = *t_11(D);
+  *a_13(D) = _6;
+  _7 = *i_17(D);
+  _8 = _7 + 1;
+  *i_17(D) = _8;
+
+  <bb 3> :
+<L0>:
+  return;
+
+}
+
+
+
+;; Function main (main, funcdef_no=1, decl_uid=2350, cgraph_uid=2, symbol_order=1)
+
+
+Analyzing function body size: main/1
+
+IPA function summary for main/1
+  global time:     75.000000
+  self size:       31
+  global size:     0
+  min size:       0
+  self stack:      0
+  global stack:    0
+    size:13.000000, time:14.000000
+    size:2.000000, time:0.000000,  executed if:(not inlined)
+  calls:
+    FB/0 function not considered for inlining
+      freq:1.00 loop depth: 1 size: 5 time: 14 callee size: 9 stack: 0
+    printf/2 function body not available
+      freq:1.00 loop depth: 0 size: 2 time: 11
+    printf/2 function body not available
+      freq:1.00 loop depth: 0 size: 3 time: 12
+    printf/2 function body not available
+      freq:1.00 loop depth: 0 size: 3 time: 12
+    scanf/3 function body not available
+      freq:1.00 loop depth: 0 size: 3 time: 12
+
+int main ()
+{
+  int n;
+  int t;
+  int i;
+  int b;
+  int a;
+  int D.2364;
+  int a.0_1;
+  int b.1_2;
+  int a.2_3;
+  int i.3_4;
+  int n.4_5;
+  int _21;
+
+  <bb 2> :
+  a = 0;
+  b = 1;
+  i = 1;
+  scanf ("%d", &n);
+  a.0_1 = a;
+  printf ("%d\n", a.0_1);
+  b.1_2 = b;
+  printf ("%d\n", b.1_2);
+  a.2_3 = a;
+  if (a.2_3 < 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+  printf ("error");
+
+  <bb 4> :
+  goto <bb 6>; [INV]
+
+  <bb 5> :
+  FB (&t, &b, &a, &i);
+
+  <bb 6> :
+  i.3_4 = i;
+  n.4_5 = n;
+  if (i.3_4 < n.4_5)
+    goto <bb 5>; [INV]
+  else
+    goto <bb 7>; [INV]
+
+  <bb 7> :
+  a ={v} {CLOBBER};
+  b ={v} {CLOBBER};
+  i ={v} {CLOBBER};
+  t ={v} {CLOBBER};
+  n ={v} {CLOBBER};
+  _21 = 0;
+
+  <bb 8> :
+<L5>:
+  return _21;
+
+}
+
+

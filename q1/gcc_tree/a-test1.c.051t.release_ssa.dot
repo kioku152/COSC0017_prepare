@@ -1,0 +1,116 @@
+digraph "a-test1.c.051t.release_ssa" {
+overlap=false;
+subgraph "cluster_FB" {
+	style="dashed";
+	color="black";
+	label="FB ()";
+	fn_0_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_0_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_0_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|_1\ =\ *b_10(D);\l\
+|*t_11(D)\ =\ _1;\l\
+|_2\ =\ *a_13(D);\l\
+|_3\ =\ *b_10(D);\l\
+|_4\ =\ _2\ +\ _3;\l\
+|*b_10(D)\ =\ _4;\l\
+|_5\ =\ *b_10(D);\l\
+|printf\ (\"%d\\n\",\ _5);\l\
+|_6\ =\ *t_11(D);\l\
+|*a_13(D)\ =\ _6;\l\
+|_7\ =\ *i_17(D);\l\
+|_8\ =\ _7\ +\ 1;\l\
+|*i_17(D)\ =\ _8;\l\
+}"];
+
+	fn_0_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|\<L0\>:\l\
+|return;\l\
+}"];
+
+	fn_0_basic_block_0:s -> fn_0_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_0_basic_block_2:s -> fn_0_basic_block_3:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_0_basic_block_3:s -> fn_0_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_0_basic_block_0:s -> fn_0_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_main" {
+	style="dashed";
+	color="black";
+	label="main ()";
+	subgraph cluster_1_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_1_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 6\>:\l\
+|i.3_4\ =\ i;\l\
+|n.4_5\ =\ n;\l\
+|if\ (i.3_4\ \<\ n.4_5)\l\
+\ \ goto\ \<bb\ 5\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [INV]\l\
+}"];
+
+	fn_1_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|FB\ (&t,\ &b,\ &a,\ &i);\l\
+}"];
+
+	}
+	fn_1_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_1_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_1_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|a\ =\ 0;\l\
+|b\ =\ 1;\l\
+|i\ =\ 1;\l\
+|scanf\ (\"%d\",\ &n);\l\
+|a.0_1\ =\ a;\l\
+|printf\ (\"%d\\n\",\ a.0_1);\l\
+|b.1_2\ =\ b;\l\
+|printf\ (\"%d\\n\",\ b.1_2);\l\
+|a.2_3\ =\ a;\l\
+|if\ (a.2_3\ \<\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+}"];
+
+	fn_1_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|printf\ (\"error\");\l\
+}"];
+
+	fn_1_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+goto\ \<bb\ 6\>;\ [INV]\l\
+}"];
+
+	fn_1_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 7\>:\l\
+|a\ =\{v\}\ \{CLOBBER\};\l\
+|b\ =\{v\}\ \{CLOBBER\};\l\
+|i\ =\{v\}\ \{CLOBBER\};\l\
+|t\ =\{v\}\ \{CLOBBER\};\l\
+|n\ =\{v\}\ \{CLOBBER\};\l\
+|_21\ =\ 0;\l\
+}"];
+
+	fn_1_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 8\>:\l\
+|\<L5\>:\l\
+|return\ _21;\l\
+}"];
+
+	fn_1_basic_block_0:s -> fn_1_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_1_basic_block_2:s -> fn_1_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_1_basic_block_2:s -> fn_1_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_1_basic_block_3:s -> fn_1_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_1_basic_block_4:s -> fn_1_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_1_basic_block_5:s -> fn_1_basic_block_6:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_1_basic_block_6:s -> fn_1_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_1_basic_block_6:s -> fn_1_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_1_basic_block_7:s -> fn_1_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_1_basic_block_8:s -> fn_1_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_1_basic_block_0:s -> fn_1_basic_block_1:n [style="invis",constraint=true];
+}
+}
