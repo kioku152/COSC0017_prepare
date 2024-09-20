@@ -1,0 +1,9 @@
+
+llvm-as test.ll -o test.bc
+
+llc test.bc -filetype=obj -o test.o
+
+clang -no-pie test.o -o test
+
+./test
+
