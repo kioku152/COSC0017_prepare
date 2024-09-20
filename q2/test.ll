@@ -79,16 +79,16 @@ if1no:
 
 if2yes:
   ; printf("error");
-  %call5 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([6 x i8], [6 x i8]* @str2, i32 0, i32 0))
+  %call1 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([6 x i8], [6 x i8]* @str2, i32 0, i32 0))
   ret i32 0
 
 if2no:
   ; printf("%d\n",a)
   ; printf("%d\n",b)
   %3 = load i32, i32* %a, align 4
-  %call6 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @str1, i32 0, i32 0), i32 %3)
+  %call2 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @str1, i32 0, i32 0), i32 %3)
   %4 = load i32, i32* %b, align 4
-  %call7 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @str1, i32 0, i32 0), i32 %4)
+  %call3 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @str1, i32 0, i32 0), i32 %4)
 
   br label %while.start
 
