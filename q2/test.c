@@ -23,7 +23,7 @@ int main(){
     scanf("%d",&n);
     if(a<0)
         printf("error");
-    if(n<1||n>1000)
+    if(n<1||n>40)
         {
             printf("error");
             return 0;

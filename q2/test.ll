@@ -70,25 +70,25 @@ if1yes:
   br label %if1no
 
 if1no:
-  ; if(n<1||n>1000)
+  ; if(n<1||n>40)
   %2 = load i32, i32* %n, align 4
   %cmp2 = icmp slt i32 %2, 1
-  %cmp3 = icmp sgt i32 %2, 1000
+  %cmp3 = icmp sgt i32 %2, 40
   %judge = or i1 %cmp2, %cmp3
   br i1 %judge, label %if2yes, label %if2no
 
 if2yes:
   ; printf("error");
-  %call1 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([6 x i8], [6 x i8]* @str2, i32 0, i32 0))
+  %call2 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([6 x i8], [6 x i8]* @str2, i32 0, i32 0))
   ret i32 0
 
 if2no:
   ; printf("%d\n",a)
   ; printf("%d\n",b)
   %3 = load i32, i32* %a, align 4
-  %call2 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @str1, i32 0, i32 0), i32 %3)
+  %call3 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @str1, i32 0, i32 0), i32 %3)
   %4 = load i32, i32* %b, align 4
-  %call3 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @str1, i32 0, i32 0), i32 %4)
+  %call4 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @str1, i32 0, i32 0), i32 %4)
 
   br label %while.start
 
