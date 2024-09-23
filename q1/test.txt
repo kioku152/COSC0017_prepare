@@ -1,0 +1,87 @@
+
+test1.o：     文件格式 elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <FB>:
+   0:	55                   	push   %rbp
+   1:	48 89 e5             	mov    %rsp,%rbp
+   4:	48 83 ec 20          	sub    $0x20,%rsp
+   8:	48 89 7d e0          	mov    %rdi,-0x20(%rbp)
+   c:	48 89 75 f8          	mov    %rsi,-0x8(%rbp)
+  10:	48 89 55 e8          	mov    %rdx,-0x18(%rbp)
+  14:	48 89 4d f0          	mov    %rcx,-0x10(%rbp)
+  18:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  1c:	8b 00                	mov    (%rax),%eax
+  1e:	48 8b 4d e0          	mov    -0x20(%rbp),%rcx
+  22:	89 01                	mov    %eax,(%rcx)
+  24:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  28:	8b 00                	mov    (%rax),%eax
+  2a:	48 8b 4d f8          	mov    -0x8(%rbp),%rcx
+  2e:	03 01                	add    (%rcx),%eax
+  30:	48 8b 4d f8          	mov    -0x8(%rbp),%rcx
+  34:	89 01                	mov    %eax,(%rcx)
+  36:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  3a:	8b 30                	mov    (%rax),%esi
+  3c:	48 bf 00 00 00 00 00 	movabs $0x0,%rdi
+  43:	00 00 00 
+  46:	b0 00                	mov    $0x0,%al
+  48:	e8 00 00 00 00       	call   4d <FB+0x4d>
+  4d:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+  51:	8b 00                	mov    (%rax),%eax
+  53:	48 8b 4d e8          	mov    -0x18(%rbp),%rcx
+  57:	89 01                	mov    %eax,(%rcx)
+  59:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+  5d:	8b 00                	mov    (%rax),%eax
+  5f:	83 c0 01             	add    $0x1,%eax
+  62:	48 8b 4d f0          	mov    -0x10(%rbp),%rcx
+  66:	89 01                	mov    %eax,(%rcx)
+  68:	48 83 c4 20          	add    $0x20,%rsp
+  6c:	5d                   	pop    %rbp
+  6d:	c3                   	ret    
+  6e:	66 90                	xchg   %ax,%ax
+
+0000000000000070 <main>:
+  70:	55                   	push   %rbp
+  71:	48 89 e5             	mov    %rsp,%rbp
+  74:	48 83 ec 20          	sub    $0x20,%rsp
+  78:	c7 45 ec 00 00 00 00 	movl   $0x0,-0x14(%rbp)
+  7f:	c7 45 fc 00 00 00 00 	movl   $0x0,-0x4(%rbp)
+  86:	c7 45 f4 01 00 00 00 	movl   $0x1,-0xc(%rbp)
+  8d:	c7 45 f8 01 00 00 00 	movl   $0x1,-0x8(%rbp)
+  94:	48 bf 00 00 00 00 00 	movabs $0x0,%rdi
+  9b:	00 00 00 
+  9e:	48 8d 75 f0          	lea    -0x10(%rbp),%rsi
+  a2:	b0 00                	mov    $0x0,%al
+  a4:	e8 00 00 00 00       	call   a9 <main+0x39>
+  a9:	8b 75 fc             	mov    -0x4(%rbp),%esi
+  ac:	48 bf 00 00 00 00 00 	movabs $0x0,%rdi
+  b3:	00 00 00 
+  b6:	b0 00                	mov    $0x0,%al
+  b8:	e8 00 00 00 00       	call   bd <main+0x4d>
+  bd:	8b 75 f4             	mov    -0xc(%rbp),%esi
+  c0:	48 bf 00 00 00 00 00 	movabs $0x0,%rdi
+  c7:	00 00 00 
+  ca:	b0 00                	mov    $0x0,%al
+  cc:	e8 00 00 00 00       	call   d1 <main+0x61>
+  d1:	83 7d fc 00          	cmpl   $0x0,-0x4(%rbp)
+  d5:	7d 11                	jge    e8 <main+0x78>
+  d7:	48 bf 00 00 00 00 00 	movabs $0x0,%rdi
+  de:	00 00 00 
+  e1:	b0 00                	mov    $0x0,%al
+  e3:	e8 00 00 00 00       	call   e8 <main+0x78>
+  e8:	eb 00                	jmp    ea <main+0x7a>
+  ea:	8b 45 f8             	mov    -0x8(%rbp),%eax
+  ed:	3b 45 f0             	cmp    -0x10(%rbp),%eax
+  f0:	7d 17                	jge    109 <main+0x99>
+  f2:	48 8d 7d e8          	lea    -0x18(%rbp),%rdi
+  f6:	48 8d 75 f4          	lea    -0xc(%rbp),%rsi
+  fa:	48 8d 55 fc          	lea    -0x4(%rbp),%rdx
+  fe:	48 8d 4d f8          	lea    -0x8(%rbp),%rcx
+ 102:	e8 00 00 00 00       	call   107 <main+0x97>
+ 107:	eb e1                	jmp    ea <main+0x7a>
+ 109:	8b 45 ec             	mov    -0x14(%rbp),%eax
+ 10c:	48 83 c4 20          	add    $0x20,%rsp
+ 110:	5d                   	pop    %rbp
+ 111:	c3                   	ret    
